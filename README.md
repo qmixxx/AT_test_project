@@ -1,1 +1,2 @@
-# AT_test_project
+# test_project
+autotest stack
