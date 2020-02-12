@@ -9,3 +9,7 @@ class LoginPageLocators():
     REGISTER_FORM = (By.ID, "register_form")
 
 
+class PageObjectLocators():
+    ADD_TO_BASKET = (By.CLASS_NAME, "btn-add-to-basket")
+
+
