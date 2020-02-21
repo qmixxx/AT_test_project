@@ -8,7 +8,7 @@ from .pages.main_page import MainPage
 @pytest.mark.login_guest
 class TestLoginFromMainPage():
     # не забываем передать первым аргументом self
-    def test_guest_can_go_to_login_page(self, browser):
+    def test_guest_can_go_to_login_page_from_product_page(self, browser):
          # реализация теста
          url = "http://selenium1py.pythonanywhere.com/"
          page = MainPage(browser, url,timeout=10)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
