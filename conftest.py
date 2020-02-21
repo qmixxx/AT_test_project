@@ -3,14 +3,15 @@ import pytest
 from selenium.webdriver.chrome.options import Options
 
 
+
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default="ru",
-                     help="Choose language: ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans en-gb")
+                     help="Choose language: ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans en-br")
 
 
 @pytest.fixture(scope="function")
 def browser(request):
-    languages = "ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans en-gb "
+    languages = "ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans"
     language = request.config.getoption("language")
     if (language + " ") in languages:
         print("\nstart chrome browser for test..")
@@ -19,7 +20,7 @@ def browser(request):
             'prefs', {'intl.accept_languages': language})
         browser = webdriver.Chrome(options=options)
     else:
-        print("\nlanguage {} not supported :(\ntry: ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans en-gb".format(language))
+        print("\nlanguage {} not supported :(\ntry: ar ca cs da de en el es fi fr it ko nl pl pt pt-br ro ru sk uk zh-hans".format(language))
         pytest.fail("Wrong Language")
         # assert 0
     yield browser
